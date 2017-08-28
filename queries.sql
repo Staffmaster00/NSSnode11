@@ -1,29 +1,51 @@
---1.
+--1. Query all of the entries in the Genre table
+--*********************
 -- SELECT * FROM genre
---2.
+--2. Using the INSERT statement, add one of your favorite artists to the Artist 
+--table.
+--*********************
 -- INSERT into Artist
 -- (artistId, artistName, YearEstablished)
 -- values(29,'Muse',1980)
---3.
+--3.Using the INSERT statement, add one, or more, albums by your 
+--artist to the Album table.
+--*********************
 -- INSERT into Album
 -- (albumId, title, releasedate, albumlength, label, artistId, genreId)
 -- values(25,'supermassiveblackhole',1982, 2313, 'alternative', 29, 2)
---4.
+--4.Using the INSERT statement, add some songs that are on 
+--that album to the Song table.
+--*********************
 -- INSERT into song
 -- (songId, title, songlength, releaseDate, genreId, artistId, albumid)
 -- values(23,'starlight',1453, '06/06/1982', 2, 29,25)
---5.
+--5.Write a SELECT query that provides the song titles, album title, 
+--and artist name for all of the data you just entered in. 
+--Use the LEFT JOIN keyword sequence to connect the tables, 
+--and the WHERE keyword to filter the results to the album and artist you added.
+--*********************
 -- SELECT a.title, s.title, ar.artistName FROM album a LEFT JOIN song s, artist ar 
 -- WHERE s.albumid = 25 and a.albumid = 25 and ar.artistName = 'Muse'
---6.
+--6.Write a SELECT statement to display how many songs exist for each album.
+-- You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+--*********************
 --SELECT count(albumid) FROM song group by albumid 
---7.
+--7.Write a SELECT statement to display how many songs exist for each artist.
+-- You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+--*********************
 --SELECT count(artistid) FROM song group by artistid 
---8.
+--8.Write a SELECT statement to display how many songs exist for each genre. 
+--You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+--*********************
 --SELECT count(genreid) FROM song group by genreid 
---9.
+--9.Using MAX() function, write a select statement to find the album with the 
+--longest duration. The result should display the album title and the duration.
+--*********************
 -- SELECT max(AlbumLength), a.artistid, ar.artistName FROM album a LEFT JOIN artist ar WHERE a.artistid = ar.artistid
---10.
+--10.Using MAX() function, write a select statement to find the song with the 
+--longest duration. The result should display the song title and the duration.
+--*********************
 --SELECT max(s.SongLength), s.title FROM song s
---11.
+--11.Modify the previous query to also display the title of the album.
+--*********************
 -- SELECT max(s.SongLength), s.title, a.title FROM song s LEFT JOIN album a WHERE a.albumid = s.albumid
